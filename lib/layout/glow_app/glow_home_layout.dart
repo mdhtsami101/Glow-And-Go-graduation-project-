@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:glow/modules/glow_app/comments/glow_comments_screen.dart';
 import 'package:glow/modules/glow_app/login/glow_login_screen.dart';
+import 'package:glow/modules/glow_app/problems/glow_problems_screen.dart';
+import 'package:glow/modules/glow_app/problems_item/glow_problems_item_screen.dart';
 import 'package:glow/shared/components/components.dart';
 import 'package:glow/shared/styles/colors.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -20,10 +23,10 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       ListView.separated(
-                      physics:NeverScrollableScrollPhysics(),
+                      physics:const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemBuilder: (context, index) => Container(
-                        height: 250,
+                        // height: 250,
                         child: Stack(
                           alignment: AlignmentDirectional.topCenter,
                           children: [
@@ -31,11 +34,19 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                               width: double.infinity,
                               height: 200.0,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadiusDirectional.only(
+                                borderRadius: const BorderRadiusDirectional.only(
                                   bottomEnd: Radius.circular(200.0),
                                   bottomStart: Radius.circular(200.0),
                                 ),
                                 gradient: defaultGradient,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 7,
+                                    color: const Color(0x55000000),
+                                    offset: Offset.fromDirection(3 ,1 ),
+                                    spreadRadius: 4,
+                                  )
+                                ],
 
                               ),
                             ),
@@ -44,15 +55,15 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                               children: [
                                 IconButton(
                                     onPressed: (){},
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.menu,
                                       color: Colors.white,
                                       size: 30.0,
 
                                     ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(
                                     horizontal: 30.0
                                   ),
                                   child: Text(
@@ -64,8 +75,8 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                const Padding(
+                                  padding: EdgeInsets.all(20.0),
                                   child: Center(
                                     child: Text(
                                       'medhat sami',
@@ -83,13 +94,20 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                   ),
                                   child: Expanded(
                                     child: Center(
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.white,
-                                        radius: 45.0,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/alarm.png'
+                                      child: ElevatedButton(
+                                        onPressed: (){},
+                                        style: ButtonStyle(
+                                          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                                          elevation: MaterialStateProperty.all(0)
                                         ),
+                                        child: const CircleAvatar(
+                                          backgroundColor: Colors.white,
+                                          radius: 45.0,
+                                          backgroundImage: AssetImage(
+                                              'assets/images/alarm.png'
+                                          ),
 
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -100,18 +118,17 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                                 separatorBuilder:(context, index) => SizedBox(
+                                 separatorBuilder:(context, index) => const SizedBox(
                                    height: 50.0,
                                  ),
                                  itemCount: 1,
                                  ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50.0,
                       ),
                       ListView.separated(
-                          physics:NeverScrollableScrollPhysics(),
+                          physics:const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-
                           itemBuilder: (context, index) => Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: Row(
@@ -124,9 +141,8 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 7,
-                                          color: Color(0x55000000),
+                                          color: const Color(0x55000000),
                                           offset: Offset.fromDirection(3 , 5),
-
                                           spreadRadius: 1.5,
                                         )
                                       ],
@@ -134,7 +150,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                     ),
                                     child: Column(
                                       children: [
-                                        Image(
+                                        const Image(
                                           image:AssetImage('assets/images/Problems.png'),
                                           width:100.0 ,
                                           height:80.0 ,
@@ -158,7 +174,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20.0,
                                 ),
                                 Expanded(
@@ -169,7 +185,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 7,
-                                          color: Color(0x55000000),
+                                          color: const Color(0x55000000),
                                           offset: Offset.fromDirection(3 , 5),
 
                                           spreadRadius: 1.5,
@@ -178,7 +194,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                     ),
                                     child: Column(
                                       children: [
-                                        Image(
+                                        const Image(
                                           image:AssetImage('assets/images/Challenges.png'),
                                           width:100.0 ,
                                           height:80.0 ,
@@ -200,7 +216,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20.0,
                                 ),
                                 Expanded(
@@ -211,7 +227,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 7,
-                                          color: Color(0x55000000),
+                                          color: const Color(0x55000000),
                                           offset: Offset.fromDirection(3 , 5),
 
                                           spreadRadius: 1.5,
@@ -220,7 +236,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                     ),
                                     child: Column(
                                       children: [
-                                        Image(
+                                        const Image(
                                           image:AssetImage('assets/images/Habits.png'),
                                           width:100.0 ,
                                           height:80.0 ,
@@ -247,16 +263,16 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          separatorBuilder:(context, index) => SizedBox(
+                          separatorBuilder:(context, index) => const SizedBox(
                             height: 50.0,
                           ),
                           itemCount: 1
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50.0,
                       ),
                       ListView.separated(
-                          physics:NeverScrollableScrollPhysics(),
+                          physics:const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemBuilder: (context, index) => Container(
                             height: 700,
@@ -264,8 +280,8 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                               children: [
                                 Stack(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
+                                    const Padding(
+                                      padding: EdgeInsets.only(
                                         top: 355
                                       ),
                                       child: Image(
@@ -285,14 +301,14 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                           boxShadow: [
                                             BoxShadow(
                                               blurRadius: 7,
-                                              color: Color(0x55000000),
+                                              color: const Color(0x55000000),
                                               offset: Offset.fromDirection(3 , 5),
 
                                               spreadRadius: 1.5,
                                             )
                                           ],
                                           color: Colors.white,
-                                          borderRadius: BorderRadiusDirectional.only(
+                                          borderRadius: const BorderRadiusDirectional.only(
                                             topEnd: Radius.circular(20.0),
                                             topStart: Radius.circular(20.0),
                                             bottomEnd: Radius.circular(40.0),
@@ -302,17 +318,17 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                         ),
                                         child:Column(
                                           children: [
-                                            Stack(
+                                            const Stack(
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsets.all(0.9),
+                                                  padding: EdgeInsets.all(0.9),
                                                   child: Image(
                                                     image:AssetImage('assets/images/head.png'),
                                                     width: double.infinity,
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsets.all(10.0),
+                                                  padding: EdgeInsets.all(10.0),
                                                   child: Center(
                                                     child: Text(
                                                       'المهام اليوميه',
@@ -334,7 +350,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                                     horizontal: 15.0
                                                   ),
                                                   child: ListView.separated(
-                                                      physics:NeverScrollableScrollPhysics(),
+                                                      physics:const NeverScrollableScrollPhysics(),
                                                       shrinkWrap: true,
                                                       itemBuilder: (context, index) =>Padding(
                                                         padding: const EdgeInsets.all(8.0),
@@ -352,7 +368,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 30.0,
                                             ),
 
@@ -370,11 +386,11 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                           separatorBuilder:(context, index) => myDivider(),
                           itemCount: 1
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       ListView.separated(
-                          physics:NeverScrollableScrollPhysics(),
+                          physics:const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemBuilder: (context, index) =>Container(
                             height:750,
@@ -382,8 +398,8 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                               children: [
                                 Stack(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
+                                    const Padding(
+                                      padding: EdgeInsets.only(
                                           top: 460,
                                       ),
                                       child: Stack(
@@ -399,7 +415,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                           Column(
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.all(20.0),
+                                                padding: EdgeInsets.all(20.0),
                                                 child: Row(
                                                   mainAxisAlignment: MainAxisAlignment.center,
                                                   children: [
@@ -492,14 +508,14 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                             boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 7,
-                                                color: Color(0x55000000),
+                                                color: const Color(0x55000000),
                                                 offset: Offset.fromDirection(3 , 5),
 
                                                 spreadRadius: 1.5,
                                               )
                                             ],
                                             color: Colors.white,
-                                            borderRadius: BorderRadiusDirectional.only(
+                                            borderRadius: const BorderRadiusDirectional.only(
                                               topEnd: Radius.circular(20.0),
                                               topStart: Radius.circular(20.0),
                                               bottomEnd: Radius.circular(40.0),
@@ -509,17 +525,17 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                         ),
                                         child:Column(
                                           children: [
-                                            Stack(
+                                            const Stack(
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsets.all(0.9),
+                                                  padding: EdgeInsets.all(0.9),
                                                   child: Image(
                                                     image:AssetImage('assets/images/head.png'),
                                                     width: double.infinity,
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsets.all(10.0),
+                                                  padding: EdgeInsets.all(10.0),
                                                   child: Center(
                                                     child: Text(
                                                       'تحدياتي',
@@ -541,20 +557,20 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                                       horizontal: 15.0
                                                   ),
                                                   child: ListView.separated(
-                                                      physics:NeverScrollableScrollPhysics(),
+                                                      physics:const NeverScrollableScrollPhysics(),
                                                       shrinkWrap: true,
                                                       itemBuilder: (context, index) =>Padding(
                                                         padding: const EdgeInsets.all(8.0),
                                                         child: Row(
                                                           children: [
-                                                            Image(
+                                                            const Image(
                                                                 image:AssetImage('assets/images/sport.png'),
                                                               fit: BoxFit.cover,
                                                               width: 45.0,
                                                               height: 45.0,
 
                                                             ),
-                                                            SizedBox(
+                                                            const SizedBox(
                                                               width: 10.0,
                                                             ),
                                                             Text(
@@ -565,7 +581,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                                                                 color: defaultTextColor,
                                                               ),
                                                             ),
-                                                            Spacer(),
+                                                            const Spacer(),
                                                             IconButton(
                                                                 onPressed: (){},
                                                                 icon: Icon(
@@ -602,14 +618,14 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 120,
                 child: Stack(
+
                   alignment: AlignmentDirectional.bottomEnd,
                   children: [
                     Container(
                       width: double.infinity,
                       height: 60.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadiusDirectional.only(
                           topEnd: Radius.circular(50.0),
                           topStart: Radius.circular(50.0),
@@ -617,47 +633,56 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                         gradient: defaultGradient,
 
                       ),
-                  ),
+                    ),
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 5.0
-                            ),
+                          Spacer(),
+                          GestureDetector(
+                            onTap: (){
+                              navigateTo(context, GlowProblemsItemScreen());
+                            },
                             child: Expanded(
                               child: CircleAvatar(
                                 backgroundColor: Colors.white,
                                 radius: 30.0,
                                 backgroundImage: AssetImage(
-                                  'assets/images/Settings.png'
-                                ),
-                              ),
-                            ),
-                          ),
-                          Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 5.0
-                            ),
-                            child: Expanded(
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                radius: 40.0,
-                                backgroundImage: AssetImage(
-                                    'assets/images/alarm.png'
+                                    'assets/images/Settings.png',
+
+
                                 ),
 
                               ),
                             ),
                           ),
-                          Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 5.0
+                          GestureDetector(
+                            onTap: (){
+                              navigateTo(context, GlowProblemsScreen());
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 33.0,
+                              ),
+                              child: Expanded(
+
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  radius: 37,
+                                  backgroundImage: AssetImage(
+                                    'assets/images/alarm.png',
+
+                                  ),
+
+                                ),
+                              ),
                             ),
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              navigateTo(context, GlowCommentsScreen());
+                            },
                             child: Expanded(
                               child: CircleAvatar(
                                 backgroundColor: Colors.white,
@@ -668,12 +693,86 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                          Spacer(),
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
+              // Container(
+              //   height: 120,
+              //   child: Stack(
+              //     alignment: AlignmentDirectional.bottomEnd,
+              //     children: [
+              //       Container(
+              //         width: double.infinity,
+              //         height: 60.0,
+              //         decoration: BoxDecoration(
+              //           borderRadius: BorderRadiusDirectional.only(
+              //             topEnd: Radius.circular(50.0),
+              //             topStart: Radius.circular(50.0),
+              //           ),
+              //           gradient: defaultGradient,
+              //
+              //         ),
+              //     ),
+              //       Padding(
+              //         padding: const EdgeInsets.all(20.0),
+              //         child: Row(
+              //           mainAxisAlignment: MainAxisAlignment.center,
+              //           children: [
+              //             Padding(
+              //               padding: const EdgeInsets.symmetric(
+              //                 vertical: 5.0
+              //               ),
+              //               child: Expanded(
+              //                 child: CircleAvatar(
+              //                   backgroundColor: Colors.white,
+              //                   radius: 30.0,
+              //                   backgroundImage: AssetImage(
+              //                     'assets/images/Settings.png'
+              //                   ),
+              //                 ),
+              //               ),
+              //             ),
+              //             Spacer(),
+              //             Padding(
+              //               padding: const EdgeInsets.symmetric(
+              //                   vertical: 5.0
+              //               ),
+              //               child: Expanded(
+              //                 child: CircleAvatar(
+              //                   backgroundColor: Colors.white,
+              //                   radius: 40.0,
+              //                   backgroundImage: AssetImage(
+              //                       'assets/images/alarm.png'
+              //                   ),
+              //
+              //                 ),
+              //               ),
+              //             ),
+              //             Spacer(),
+              //             Padding(
+              //               padding: const EdgeInsets.symmetric(
+              //                   vertical: 5.0
+              //               ),
+              //               child: Expanded(
+              //                 child: CircleAvatar(
+              //                   backgroundColor: Colors.white,
+              //                   radius: 30.0,
+              //                   backgroundImage: AssetImage(
+              //                       'assets/images/allcomment.png'
+              //                   ),
+              //                 ),
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
 
             ],
           ),

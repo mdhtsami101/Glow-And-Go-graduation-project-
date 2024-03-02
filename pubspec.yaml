@@ -80,6 +80,11 @@ flutter:
     - family: Jannah
       fonts:
         - asset: assets/fonts/jannah.ttf
+    - family: Glow
+      fonts:
+        - asset: assets/fonts/GlowFont.otf
+          weight: 700
+
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

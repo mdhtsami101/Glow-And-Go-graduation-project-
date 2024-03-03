@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:glow/layout/glow_app/glow_home_layout.dart';
 import 'package:glow/modules/glow_app/challenge_screen/challenge.dart';
+import 'package:glow/modules/glow_app/challenges_users_item/glow_challenges_users_item_screen.dart';
 import 'package:glow/modules/glow_app/comments/glow_comments_screen.dart';
 import 'package:glow/modules/glow_app/habits_screen/habits_page.dart';
 import 'package:glow/modules/glow_app/login/glow_login_screen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Directionality(
         textDirection: TextDirection.rtl,
-        child: GlowHomeLayoutScreen(),
+        child: HabitsPage(),
       ),
     );
   }

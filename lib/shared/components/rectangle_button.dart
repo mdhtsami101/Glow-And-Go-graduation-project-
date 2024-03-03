@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:glow/modules/glow_app/challenges_users_item/glow_challenges_users_item_screen.dart';
 import 'package:glow/shared/styles/colors.dart';
 
 class RectangleButton extends StatelessWidget {
@@ -45,11 +46,16 @@ class RectangleButton extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 90),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (Context) {
+                            return GlowChallengesItemScreen();
+                          }));
+                        },
                         icon: Icon(
                           Icons.arrow_back_ios_new,
                           color: Colors.blue,
-                          size: 40,
+                          size: 30,
                         ),
                       ),
                     ),

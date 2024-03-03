@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:glow/layout/glow_app/glow_home_layout.dart';
 import 'package:glow/modules/glow_app/comments/glow_comments_screen.dart';
 import 'package:glow/shared/components/bottom_bar.dart';
-import 'package:glow/shared/components/calendartry.dart';
 import 'package:glow/shared/components/components.dart';
 import 'package:glow/shared/components/custom_calendar.dart';
 import 'package:glow/shared/components/topbar_with_img.dart';

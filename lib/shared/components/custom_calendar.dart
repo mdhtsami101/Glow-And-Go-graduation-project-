@@ -45,6 +45,7 @@ class CustomCalendarWidget extends StatelessWidget {
 
         return SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 55, right: 55, top: 20),
@@ -193,7 +194,106 @@ class CustomCalendarWidget extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(height: 20),
                     ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Visibility(
+                visible: state.selectedDay != null,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 55, right: 55, top: 20),
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 7,
+                          color: Color(0x55000000),
+                          offset: Offset.fromDirection(3, 5),
+                          spreadRadius: 1.5,
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadiusDirectional.only(
+                        topEnd: Radius.circular(15.0),
+                        topStart: Radius.circular(15.0),
+                        bottomEnd: Radius.circular(15.0),
+                        bottomStart: Radius.circular(15.0),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          'You selected ${state.selectedDay}',
+                          textAlign: TextAlign.center,
+                        ),
+                        ListView.separated(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) => Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 2, left: 0.8, right: 10),
+                                          child: Text(
+                                            'غسيل الاسنان',
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                              fontSize: 30,
+                                              color: Color.fromARGB(
+                                                  255, 1, 78, 211),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Divider(
+                                      height: 20,
+                                      thickness: 1,
+                                      color: Color.fromARGB(255, 1, 78, 211),
+                                      indent: 10,
+                                      endIndent: 15,
+                                    ),
+                                  ],
+                                ),
+                            separatorBuilder: (context, index) => SizedBox(
+                                  height: 5.0,
+                                ),
+                            itemCount: 5),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          width: 120,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              side: MaterialStateProperty.all<BorderSide>(
+                                BorderSide(color: Colors.blue, width: 2.0),
+                              ),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.add,
+                              color: Color.fromARGB(255, 1, 78, 211),
+                              size: 40,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

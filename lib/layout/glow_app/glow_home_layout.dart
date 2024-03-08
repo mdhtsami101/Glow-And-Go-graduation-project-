@@ -6,6 +6,7 @@ import 'package:glow/modules/glow_app/habits_screen/habits_page.dart';
 import 'package:glow/modules/glow_app/login/glow_login_screen.dart';
 import 'package:glow/modules/glow_app/problems/glow_problems_screen.dart';
 import 'package:glow/modules/glow_app/problems_item/glow_problems_item_screen.dart';
+import 'package:glow/modules/glow_app/side_menu/side_menu.dart';
 import 'package:glow/shared/components/bottom_bar.dart';
 import 'package:glow/shared/components/components.dart';
 import 'package:glow/shared/styles/colors.dart';
@@ -56,12 +57,26 @@ class GlowHomeLayoutScreen extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  IconButton(
-                                    onPressed: () {},
+                                  /*IconButton(
+                                    onPressed: () {
+                                      navigateTo(context, SideMenu());
+                                    },
                                     icon: const Icon(
                                       Icons.menu,
                                       color: Colors.white,
                                       size: 30.0,
+                                    ),
+                                  ),*/
+                                  Builder(
+                                    builder: (context) => IconButton(
+                                      onPressed: () {
+                                        Scaffold.of(context).openDrawer();
+                                      },
+                                      icon: Icon(
+                                        Icons.menu,
+                                        color: Colors.white,
+                                        size: 30.0,
+                                      ),
                                     ),
                                   ),
                                   const Padding(
@@ -789,6 +804,7 @@ class GlowHomeLayoutScreen extends StatelessWidget {
           ),
         ),
       ),
+      drawer: SideMenu(key: UniqueKey()),
     );
   }
 }

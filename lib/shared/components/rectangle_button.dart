@@ -12,6 +12,7 @@ class RectangleButton extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
+            height: 50,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadiusDirectional.circular(20.0),
@@ -25,41 +26,15 @@ class RectangleButton extends StatelessWidget {
               ],
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10.0, right: 130),
-                      child: Text(
-                        text,
-                        style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.normal,
-                          color: defaultTextColor,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 90),
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (Context) {
-                            return GlowChallengesItemScreen();
-                          }));
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.blue,
-                          size: 30,
-                        ),
-                      ),
-                    ),
-                  ],
+                Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.normal,
+                    color: defaultTextColor,
+                  ),
                 ),
               ],
             ),

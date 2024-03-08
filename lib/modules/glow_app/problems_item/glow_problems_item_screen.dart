@@ -191,7 +191,7 @@ class GlowProblemsItemScreen extends StatelessWidget {
               ),
               BottomBar(
                 right_image: 'assets/images/Settings.png',
-                center_image: 'assets/images/alarm.png',
+                center_image: 'assets/images/home.png',
                 left_image: 'assets/images/allcomment.png',
                 center_icon: () {
                   navigateTo(context, GlowHomeLayoutScreen());

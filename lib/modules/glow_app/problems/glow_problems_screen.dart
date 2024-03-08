@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glow/layout/glow_app/glow_home_layout.dart';
 import 'package:glow/modules/glow_app/comments/glow_comments_screen.dart';
+import 'package:glow/modules/glow_app/problems_item/glow_problems_item_screen.dart';
 import 'package:glow/shared/components/bottom_bar.dart';
 import 'package:glow/shared/components/components.dart';
 import 'package:glow/shared/components/topbar_with_img.dart';
@@ -49,42 +50,41 @@ class GlowProblemsScreen extends StatelessWidget {
                                     horizontal: 20.0),
                                 child: Column(
                                   children: [
-                                    Container(
-                                      width: double.infinity,
-                                      height: 55,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(20),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 5,
-                                            color: Color(0x55000000),
-                                            offset: Offset.fromDirection(3, 4),
-                                            spreadRadius: 0.3,
-                                          )
-                                        ],
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          IconButton(
-                                            onPressed: () {},
-                                            icon: Icon(
-                                              Icons.arrow_back_ios_new,
-                                              color: defaultTextColor,
+                                    GestureDetector(
+                                      onTap: () {
+                                        navigateTo(
+                                            context, GlowProblemsItemScreen());
+                                      },
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 55,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 5,
+                                              color: Color(0x55000000),
+                                              offset:
+                                                  Offset.fromDirection(3, 4),
+                                              spreadRadius: 0.3,
+                                            )
+                                          ],
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'الخوف',
+                                              style: TextStyle(
+                                                  color: defaultTextColor,
+                                                  fontSize: 22,
+                                                  fontWeight: FontWeight.bold),
                                             ),
-                                          ),
-                                          Spacer(),
-                                          Text(
-                                            'الخوف',
-                                            style: TextStyle(
-                                                color: defaultTextColor,
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Spacer(),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],

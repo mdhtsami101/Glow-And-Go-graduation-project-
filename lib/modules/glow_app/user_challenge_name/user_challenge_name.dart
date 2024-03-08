@@ -1,26 +1,21 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:glow/layout/glow_app/glow_home_layout.dart';
+import 'package:glow/modules/glow_app/comments/glow_comments_screen.dart';
 import 'package:glow/shared/components/bottom_bar.dart';
+import 'package:glow/shared/components/components.dart';
 import 'package:glow/shared/components/topbar_with_img.dart';
+import 'package:glow/shared/components/topbar_without_img.dart';
+import 'package:glow/shared/styles/colors.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import '../../../shared/components/components.dart';
-import '../../../shared/styles/colors.dart';
-import '../comments/glow_comments_screen.dart';
-import '../problems/glow_problems_screen.dart';
-import '../problems_item/glow_problems_item_screen.dart';
-
-class GlowChallengesItemScreen extends StatefulWidget {
-  const GlowChallengesItemScreen({super.key});
+class UserChallengeName extends StatefulWidget {
+  const UserChallengeName({super.key});
 
   @override
-  State<GlowChallengesItemScreen> createState() =>
-      _GlowChallengesItemScreenState();
+  State<UserChallengeName> createState() => _GlowUserChallengeNameState();
 }
 
-class _GlowChallengesItemScreenState extends State<GlowChallengesItemScreen> {
+class _GlowUserChallengeNameState extends State<UserChallengeName> {
   bool val = false;
   bool isVisible = true;
   List<bool> checkBoxValues = [false, false, false, false, false];
@@ -44,10 +39,9 @@ class _GlowChallengesItemScreenState extends State<GlowChallengesItemScreen> {
                       ListView.separated(
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemBuilder: (context, index) => TopBarWithImg(
-                          image: 'assets/images/topfeed.png',
-                          text1: 'التغذية',
-                          text2: 'الاكل السليم في الجسم السليم',
+                        itemBuilder: (context, index) => TopBarWithoutImg(
+                          text1: 'اسم',
+                          text2: 'التحدي',
                         ),
                         separatorBuilder: (context, index) => SizedBox(
                           height: 50.0,
@@ -56,32 +50,6 @@ class _GlowChallengesItemScreenState extends State<GlowChallengesItemScreen> {
                       ),
                       SizedBox(
                         height: 30.0,
-                      ),
-                      RatingBar(
-                        minRating: 1,
-                        maxRating: 5,
-                        initialRating: 0,
-                        glow: false,
-                        allowHalfRating: true,
-                        ratingWidget: RatingWidget(
-                          full: Icon(
-                            Icons.star,
-                            color: defaultTextColor,
-                          ),
-                          half: Icon(
-                            Icons.star,
-                            color: Colors.grey,
-                          ),
-                          empty: Icon(
-                            Icons.star,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        onRatingUpdate: (value) {},
-                        itemSize: 35,
-                      ),
-                      SizedBox(
-                        height: 15.0,
                       ),
                       ListView.separated(
                           physics: NeverScrollableScrollPhysics(),
@@ -120,22 +88,6 @@ class _GlowChallengesItemScreenState extends State<GlowChallengesItemScreen> {
                                             ),
                                           ),
                                           Spacer(),
-                                          Checkbox(
-                                            value: checkBoxValues[index],
-                                            checkColor: Colors.green,
-                                            side: BorderSide(
-                                              color: Colors.red,
-                                              width: 2,
-                                            ),
-                                            fillColor:
-                                                MaterialStateProperty.all(
-                                                    Colors.white),
-                                            onChanged: (value) {
-                                              setState(() {
-                                                checkBoxValues[index] = value!;
-                                              });
-                                            },
-                                          ),
                                           IconButton(
                                             onPressed: () {
                                               setState(() {
@@ -196,7 +148,7 @@ class _GlowChallengesItemScreenState extends State<GlowChallengesItemScreen> {
                               ),
                           itemCount: 5),
                       SizedBox(
-                        height: 40.0,
+                        height: 50.0,
                       ),
                       SizedBox(
                         height: 50,
@@ -216,7 +168,7 @@ class _GlowChallengesItemScreenState extends State<GlowChallengesItemScreen> {
                             'اضافه',
                             style: TextStyle(
                               color: defaultTextColor,
-                              fontSize: 30,
+                              fontSize: 28,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

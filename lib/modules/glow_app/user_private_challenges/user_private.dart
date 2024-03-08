@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:glow/layout/glow_app/glow_home_layout.dart';
-import 'package:glow/modules/glow_app/add_challenge/add_challenge.dart';
 import 'package:glow/modules/glow_app/comments/glow_comments_screen.dart';
-import 'package:glow/modules/glow_app/user_challenge_name/user_challenge_name.dart';
 import 'package:glow/shared/components/bottom_bar.dart';
 import 'package:glow/shared/components/components.dart';
 import 'package:glow/shared/components/rectangle_button.dart';
 import 'package:glow/shared/components/topbar_with_img.dart';
-import 'package:glow/shared/components/topbar_without_img.dart';
-//import 'package:glow/shared/components/components.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class userChallengeScreen extends StatelessWidget {
+class UserPrivateChallenges extends StatelessWidget {
+  const UserPrivateChallenges({super.key});
+
   @override
-  //text1: 'تحديات',
-  //text2: 'المستخدمين',
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: HexColor('FAFAFAFF'),
@@ -31,8 +27,8 @@ class userChallengeScreen extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) => TopBarWithImg(
-                          text1: 'تحديات',
-                          text2: 'المستخدمين',
+                          text1: 'تحدياتي',
+                          text2: 'الخاصه',
                           image: 'assets/images/allcomment.png',
                         ),
                         separatorBuilder: (context, index) => const SizedBox(
@@ -48,29 +44,24 @@ class userChallengeScreen extends StatelessWidget {
                           shrinkWrap: true,
                           itemBuilder: (context, index) => Padding(
                                 padding: const EdgeInsets.all(16.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    navigateTo(context, UserChallengeName());
-                                  },
-                                  child: RectangleButton(
-                                    text: 'تحدي',
-                                  ),
+                                child: RectangleButton(
+                                  text: 'قراءه',
                                 ),
                               ),
                           separatorBuilder: (context, index) => SizedBox(
                                 height: 0,
                               ),
-                          itemCount: 20),
+                          itemCount: 3),
                     ],
                   ),
                 ),
               ),
               BottomBar(
                 right_image: 'assets/images/Settings.png',
-                center_image: 'assets/images/addB.png',
+                center_image: 'assets/images/home.png',
                 left_image: 'assets/images/allcomment.png',
                 center_icon: () {
-                  navigateTo(context, AddChallenge());
+                  navigateTo(context, GlowHomeLayoutScreen());
                 },
                 right_icon: () {},
                 left_icon: () {
